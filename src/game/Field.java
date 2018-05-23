@@ -1,7 +1,5 @@
 package game;
 import java.util.Random;
-
-import objects.disposableObjects.DisposableObject;
 import objects.EmptySpace;
 import objects.ObjectOnField;
 import objects.Wall;

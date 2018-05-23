@@ -73,7 +73,6 @@ class GetImage {
 		animationImages.put("SnakeHead", new String[] {"SnakeHead0", "SnakeHead1"});
 		animationImages.put("SnakeTwist", new String[] {"SnakeTwist0"});
 		animationImages.put("SnakePart", new String[] {"SnakePart0"});
-		//animationImages.put("Wall", new String[] {"Wall0", "Wall1", "Wall2", "Wall3", "Wall4", "Wall5", "Wall6", "Wall7", "Wall8", "Wall9", "Wall10"});
         animationImages.put("Wall", new String[] {"Wall0"});
 		animationImages.put("RottenApple", new String[] {"RottenApple0"});
 		animationImages.put("EmptySpace", new String[] {"EmptySpace0"});

@@ -1,7 +1,6 @@
 package game.tests;
 
 import game.Coordinate;
-import game.Direction;
 import game.Field;
 import game.Snake;
 import objects.EmptySpace;

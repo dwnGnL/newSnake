@@ -8,10 +8,6 @@ final public class Coordinate {
         this.y = y;
     }
 
-    public Coordinate(Coordinate coordinate) {
-        this.x = coordinate.x;
-        this.y = coordinate.y;
-    }
 
     public Coordinate getNextCoordinate(Direction direction) {
         if (direction == Direction.Right)
@@ -26,7 +22,5 @@ final public class Coordinate {
             return this;
     }
 
-    public boolean equals(Coordinate coordinate) {
-        return this.x == coordinate.x && this.y == coordinate.y;
-    }
+
 }
