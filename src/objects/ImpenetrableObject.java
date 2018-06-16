@@ -4,8 +4,8 @@ import game.Coordinate;
 import game.Field;
 import game.Snake;
 
-public abstract class ImpenetrableObject extends ObjectOnField {
-    public ImpenetrableObject(Coordinate coordinate) {
+public abstract class ImpenetrableObject extends FieldObject {
+    ImpenetrableObject(Coordinate coordinate) {
         super(coordinate);
     }
 

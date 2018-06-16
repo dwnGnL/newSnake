@@ -12,7 +12,7 @@ import java.util.Map;
 import javax.imageio.ImageIO;
 import game.Direction;
 import game.MapOfDirections;
-import objects.ObjectOnField;
+import objects.FieldObject;
 import objects.PieceOfSnake;
 
 class GetImage {
@@ -35,13 +35,13 @@ class GetImage {
         return pieceOfSnake.direction;
     }
     
-    Image getImage(ObjectOnField objectOnField, int counter) {
+    Image getImage(FieldObject fieldObject, int counter) {
     	Direction direction = Direction.Right;
-    	if (objectOnField instanceof PieceOfSnake) {
-    		PieceOfSnake pieceOfSnake = (PieceOfSnake)objectOnField;
+    	if (fieldObject instanceof PieceOfSnake) {
+    		PieceOfSnake pieceOfSnake = (PieceOfSnake) fieldObject;
     		direction = this.chooseSnakePieceTurn(pieceOfSnake);
     	}
-		String obj = objectOnField.nameOfTheObject();
+		String obj = fieldObject.nameOfTheObject();
 		return images.get(animationNameOfTheObject(obj, counter)).get(direction);
     }
     

@@ -1,13 +1,13 @@
 package game;
 import java.util.Random;
 import objects.EmptySpace;
-import objects.ObjectOnField;
+import objects.FieldObject;
 import objects.Wall;
 
 public class Field {
-    private ObjectOnField[][] field;
+    private FieldObject[][] field;
     public Field(Coordinate fieldSize){
-        this.field = new ObjectOnField[fieldSize.x][fieldSize.y];
+        this.field = new FieldObject[fieldSize.x][fieldSize.y];
         for (int x = 0; x < this.getLengthX(); x++)
             for (int y = 0; y < this.getLengthY(); y++)
                 addObjectOnField(new EmptySpace(new Coordinate(x, y)));
@@ -33,7 +33,7 @@ public class Field {
 
     }
 
-    public ObjectOnField getObjectOnField(Coordinate coordinate) {
+    public FieldObject getObjectOnField(Coordinate coordinate) {
         return field[coordinate.x][coordinate.y];
     }
 
@@ -62,7 +62,7 @@ public class Field {
         int randomX;
         int randomY;
         do {
-            int countWall = 0;
+            int countWall;
             do {
                 countWall = 0;
                 randomX = random.nextInt(this.getLengthX() - 2) + 1;
@@ -110,11 +110,11 @@ public class Field {
         return new Snake(emptyCoordinate, this);
     }
 
-    public void addObjectOnField(ObjectOnField objectOnField) {
-        field[objectOnField.coordinate.x][objectOnField.coordinate.y] = objectOnField;
+    public void addObjectOnField(FieldObject fieldObject) {
+        field[fieldObject.coordinate.x][fieldObject.coordinate.y] = fieldObject;
     }
 
-    public void deleteObjectOnField(ObjectOnField objectOnField) {
-        this.addObjectOnField(new EmptySpace(objectOnField.coordinate));
+    public void deleteObjectOnField(FieldObject fieldObject) {
+        this.addObjectOnField(new EmptySpace(fieldObject.coordinate));
     }
 }
