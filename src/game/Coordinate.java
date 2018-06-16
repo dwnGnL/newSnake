@@ -1,4 +1,5 @@
 package game;
+
 final public class Coordinate {
     final public int x;
     final public int y;

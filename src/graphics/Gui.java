@@ -1,16 +1,19 @@
 package graphics;
+
 import javax.swing.*;
 import javax.swing.Timer;
+
 import game.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class Gui extends JPanel implements ActionListener{
+public class Gui extends JPanel implements ActionListener {
 
     private final int fps = 8;
-    private Timer timer = new Timer(1000/fps, this);
+    private Timer timer = new Timer(1000 / fps, this);
     private GetImage paintImage;
     public Game game;
 
@@ -21,9 +24,11 @@ public class Gui extends JPanel implements ActionListener{
         this.timer.start();
 
     }
+
     private int cellHeight() {
         return getHeight() / (this.game.field.getLengthY());
     }
+
     private int cellWidth() {
         return getWidth() / (this.game.field.getLengthX());
     }

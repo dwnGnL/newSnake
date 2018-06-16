@@ -1,12 +1,15 @@
 package game;
+
 import java.util.Random;
+
 import objects.EmptySpace;
 import objects.FieldObject;
 import objects.Wall;
 
 public class Field {
     private FieldObject[][] field;
-    public Field(Coordinate fieldSize){
+
+    public Field(Coordinate fieldSize) {
         this.field = new FieldObject[fieldSize.x][fieldSize.y];
         for (int x = 0; x < this.getLengthX(); x++)
             for (int y = 0; y < this.getLengthY(); y++)
@@ -23,10 +26,8 @@ public class Field {
 
     public void surroundByWall() {
         for (int i = 0; i < this.getLengthX(); i++)
-            for (int j = 0; j < this.getLengthY(); j++)
-            {
-                if (i==0 || j == 0 || i == this.getLengthX() - 1 || j == this.getLengthY() - 1)
-                {
+            for (int j = 0; j < this.getLengthY(); j++) {
+                if (i == 0 || j == 0 || i == this.getLengthX() - 1 || j == this.getLengthY() - 1) {
                     addObjectOnField(new Wall(new Coordinate(i, j)));
                 }
             }
@@ -49,8 +50,7 @@ public class Field {
     public boolean isEmptyEnvirons(Coordinate coordinate) {
         int count = 0;
         for (int x = coordinate.x - 1; x < coordinate.x + 2; x++)
-            for (int y = coordinate.y - 1; y <  coordinate.y + 2; y++)
-            {
+            for (int y = coordinate.y - 1; y < coordinate.y + 2; y++) {
                 if (!(getObjectOnField(new Coordinate(x, y)) instanceof EmptySpace))
                     count++;
             }
@@ -67,7 +67,7 @@ public class Field {
                 countWall = 0;
                 randomX = random.nextInt(this.getLengthX() - 2) + 1;
                 randomY = random.nextInt(this.getLengthY() - 2) + 1;
-                for (Direction direction: Direction.values()) {
+                for (Direction direction : Direction.values()) {
                     if (this.getObjectOnField(
                             new Coordinate(
                                     randomX, randomY).getNextCoordinate(direction)) instanceof Wall) {
@@ -83,13 +83,11 @@ public class Field {
 
     public void addRandomWall() {
         int count = this.getLengthX() * this.getLengthY() * 2;
-        while (count > 0)
-        {
+        while (count > 0) {
             if (this.countEmptySpace() == 0)
                 return;
             Coordinate emptyCoordinate = this.getRandomCoordinateWithEmptySpace();
-            if (isEmptyEnvirons(emptyCoordinate))
-            {
+            if (isEmptyEnvirons(emptyCoordinate)) {
                 addObjectOnField(new Wall(emptyCoordinate));
             }
             count--;
@@ -102,7 +100,7 @@ public class Field {
     }
 
     public void objectGenerator() {
-    	GeneratorOfDisposableObject.generateDisposableObject(this);
+        GeneratorOfDisposableObject.generateDisposableObject(this);
     }
 
     public Snake addSnake() {

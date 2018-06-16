@@ -11,7 +11,7 @@ public abstract class ImpenetrableObject extends FieldObject {
 
     @Override
     public void toInteractWithSnake(Snake snake, Field field) {
-    	PieceOfSnake snakeHead = (PieceOfSnake)field.getObjectOnField((snake.getHeadCoordinate()));
-    	snake.setDirection(snakeHead.direction);
+        PieceOfSnake snakeHead = (PieceOfSnake) field.getObjectOnField((snake.getHeadCoordinate()));
+        snake.setDirection(snakeHead.direction);
     }
 }

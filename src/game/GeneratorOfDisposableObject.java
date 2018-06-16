@@ -10,7 +10,7 @@ import objects.disposableObjects.DisposableObject;
 import objects.disposableObjects.RottenApple;
 
 class GeneratorOfDisposableObject {
-	static void generateDisposableObject(Field field) {
+    static void generateDisposableObject(Field field) {
         ArrayList<DisposableObject> disposableObjects = new ArrayList<>();
 
         disposableObjects.add(new Apple(field.getRandomCoordinateWithEmptySpace()));
@@ -33,7 +33,7 @@ class GeneratorOfDisposableObject {
                 break;
             }
         }
-        for (DisposableObject object: disposableObjects) {
+        for (DisposableObject object : disposableObjects) {
             if (object.getChanceOfOccurrence() > chance) {
                 field.addObjectOnField(object);
             }

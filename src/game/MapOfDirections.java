@@ -7,25 +7,26 @@ public class MapOfDirections {
 
     public MapOfDirections() {
         this.map = new HashMap<Direction, ArrayList<Direction>[]>();
-        for (Direction direction: Direction.values()) {
+        for (Direction direction : Direction.values()) {
             this.map.put(
-                    direction, new ArrayList[] {
-                            new ArrayList(),new ArrayList()});
+                    direction, new ArrayList[]{
+                            new ArrayList(), new ArrayList()});
         }
     }
+
     public void add(Direction keyFirst,
-               Direction keySecond,
-               Direction value) {
+                    Direction keySecond,
+                    Direction value) {
         this.map.get(value)[0].add(keyFirst);
         this.map.get(value)[1].add(keySecond);
     }
 
     public void addDoubleDirections(Direction keyFirst,
-                                 Direction keySecond,
-                                 Direction value) {
+                                    Direction keySecond,
+                                    Direction value) {
         this.add(keyFirst, keySecond, value);
         ArrayList<Direction> anotherDirections = new ArrayList<Direction>();
-        for (Direction direction: Direction.values()) {
+        for (Direction direction : Direction.values()) {
             if (direction != Direction.None && direction != keyFirst &&
                     direction != keySecond) {
                 anotherDirections.add(direction);
@@ -40,7 +41,7 @@ public class MapOfDirections {
     }
 
     public Direction get(Direction keyFirst, Direction keySecond) {
-        for (Direction direction: Direction.values()) {
+        for (Direction direction : Direction.values()) {
             for (int i = 0; i < this.map.get(direction)[0].size(); i++) {
                 if (this.map.get(direction)[0].get(i) == keyFirst &&
                         this.map.get(direction)[1].get(i) == keySecond) {

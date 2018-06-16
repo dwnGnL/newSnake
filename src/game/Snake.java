@@ -1,4 +1,5 @@
 package game;
+
 import java.util.Stack;
 
 import objects.EmptySpace;

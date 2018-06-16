@@ -1,4 +1,5 @@
 package game;
+
 import java.util.Random;
 
 public class Game {
@@ -18,7 +19,7 @@ public class Game {
         return !this.snake.isPossibleToMove(this.field);
     }
 
-    public void startNewGame(){
+    public void startNewGame() {
         this.field = new Field(getRandomFieldSize());
         this.field.toPlaceTheWalls();
         this.snake = this.field.addSnake();

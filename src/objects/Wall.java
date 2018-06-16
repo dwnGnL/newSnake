@@ -4,7 +4,7 @@ import game.Coordinate;
 import game.Field;
 import game.Snake;
 
-public class Wall extends ImpenetrableObject{
+public class Wall extends ImpenetrableObject {
     public Wall(Coordinate coordinate) {
         super(coordinate);
     }

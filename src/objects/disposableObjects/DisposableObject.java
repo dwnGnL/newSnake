@@ -20,5 +20,6 @@ public abstract class DisposableObject extends PenetrableObject {
     }
 
     public abstract void EffectOfObject(Snake snake, Field field);
+
     public abstract int getChanceOfOccurrence();
 }

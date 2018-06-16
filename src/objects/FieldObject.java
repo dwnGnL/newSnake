@@ -7,10 +7,9 @@ import game.Snake;
 public abstract class FieldObject {
     public Coordinate coordinate;
 
-     FieldObject(Coordinate coordinate) {
+    FieldObject(Coordinate coordinate) {
         this.coordinate = coordinate;
     }
-
 
 
     public abstract void toInteractWithSnake(Snake snake, Field field);
