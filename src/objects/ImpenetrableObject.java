@@ -9,6 +9,7 @@ public abstract class ImpenetrableObject extends FieldObject {
         super(coordinate);
     }
 
+
     @Override
     public void toInteractWithSnake(Snake snake, Field field) {
         PieceOfSnake snakeHead = (PieceOfSnake) field.getObjectOnField((snake.getHeadCoordinate()));

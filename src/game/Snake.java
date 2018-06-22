@@ -1,10 +1,11 @@
 package game;
 
-import java.util.Stack;
-
 import objects.EmptySpace;
 import objects.ImpenetrableObject;
 import objects.PieceOfSnake;
+
+
+import java.util.Stack;
 
 public class Snake {
     private PieceOfSnake tail;
@@ -13,12 +14,13 @@ public class Snake {
     private int size;
     private Stack<PieceOfSnake> lastPart;
 
+
     public Coordinate getTailCoordinate() {
-        return tail.coordinate;
+        return tail.getCoordinate();
     }
 
     public Coordinate getHeadCoordinate() {
-        return head.coordinate;
+        return head.getCoordinate();
     }
 
     public int getLastMovesSize() {
@@ -42,7 +44,7 @@ public class Snake {
 
     public void pushFront(Field field) {
         PieceOfSnake newPiece = new PieceOfSnake(
-                this.head.coordinate.getNextCoordinate(this.direction),
+                this.head.getCoordinate().getNextCoordinate(this.direction),
                 this.direction, this.head);
         field.addObjectOnField(newPiece);
         this.head = newPiece;
@@ -51,7 +53,7 @@ public class Snake {
 
     public void pushBack(Field field) {
         if (!this.lastPart.isEmpty()) {
-            if (field.getObjectOnField(this.lastPart.peek().coordinate) instanceof EmptySpace) {
+            if (field.getObjectOnField(this.lastPart.peek().getCoordinate()) instanceof EmptySpace) {
                 field.addObjectOnField(this.lastPart.peek());
                 this.tail.lastPiece = this.lastPart.peek();
                 this.tail = this.lastPart.pop();
@@ -62,7 +64,7 @@ public class Snake {
 
     public boolean isPossibleToMove(Field field) {
         for (Direction direction : Direction.values()) {
-            if (!(field.getObjectOnField(this.head.coordinate.getNextCoordinate(direction)) instanceof ImpenetrableObject))
+            if (!(field.getObjectOnField(this.head.getCoordinate().getNextCoordinate(direction)) instanceof ImpenetrableObject))
                 return true;
         }
         return false;
@@ -87,7 +89,7 @@ public class Snake {
 
     public void toInteractWithObject(Field field) {
         field.getObjectOnField(
-                this.head.coordinate.getNextCoordinate(
+                this.head.getCoordinate().getNextCoordinate(
                         this.direction)).toInteractWithSnake(
                 this, field);
     }

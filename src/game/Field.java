@@ -9,6 +9,7 @@ import objects.Wall;
 public class Field {
     private FieldObject[][] field;
 
+
     public Field(Coordinate fieldSize) {
         this.field = new FieldObject[fieldSize.x][fieldSize.y];
         for (int x = 0; x < this.getLengthX(); x++)
@@ -109,10 +110,10 @@ public class Field {
     }
 
     public void addObjectOnField(FieldObject fieldObject) {
-        field[fieldObject.coordinate.x][fieldObject.coordinate.y] = fieldObject;
+        field[fieldObject.getCoordinate().x][fieldObject.getCoordinate().y] = fieldObject;
     }
 
     public void deleteObjectOnField(FieldObject fieldObject) {
-        this.addObjectOnField(new EmptySpace(fieldObject.coordinate));
+        this.addObjectOnField(new EmptySpace(fieldObject.getCoordinate()));
     }
 }
